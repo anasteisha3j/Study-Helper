@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\прогр.інженерія\\2 семестр\\studyhelper\\studyhelper.csproj": {}
+    "D:\\Study-Helper\\studyhelper.csproj": {}
   },
   "projects": {
-    "D:\\прогр.інженерія\\2 семестр\\studyhelper\\studyhelper.csproj": {
+    "D:\\Study-Helper\\studyhelper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\прогр.інженерія\\2 семестр\\studyhelper\\studyhelper.csproj",
+        "projectUniqueName": "D:\\Study-Helper\\studyhelper.csproj",
         "projectName": "studyhelper",
-        "projectPath": "D:\\прогр.інженерія\\2 семестр\\studyhelper\\studyhelper.csproj",
+        "projectPath": "D:\\Study-Helper\\studyhelper.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\прогр.інженерія\\2 семестр\\studyhelper\\obj\\",
+        "outputPath": "D:\\Study-Helper\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,39 +1,3 @@
-@* @model IEnumerable<StudyApp.Models.TaskModel>
-
-@{
-    ViewData["Title"] = "Список завдань";
-}
-
-<h1>Список завдань</h1>
-
-<a href="@Url.Action("Create", "Task")" class="btn btn-success">Додати нове завдання</a>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Назва завдання</th>
-            <th>Опис</th>
-            <th>Термін виконання</th>
-            <th>Статус</th>
-            <th>Дії</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var task in Model)
-        {
-            <tr>
-                <td>@task.Title</td>
-                <td>@task.Description</td>
-                <td>@task.Deadline</td>
-                <td>@(task.IsCompleted ? "Завершено" : "Не завершено")</td>
-                <td>
-                    <a href="@Url.Action("Edit", "Task", new { id = task.Id })" class="btn btn-warning">Редагувати</a>
-                    <a href="@Url.Action("Delete", "Task", new { id = task.Id })" class="btn btn-danger">Видалити</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table> *@
 
 
 @model IEnumerable<StudyApp.Models.TaskModel>
@@ -44,30 +8,22 @@
 }
 
 <style>
-    .task-card {
+    .grade-card {
         transition: all 0.3s ease;
         border-left: 4px solid #6c757d;
     }
     
-    .task-card:hover {
+    .grade-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
-    .task-card.completed {
-        border-left-color: #28a745;
-        background-color: #f8f9fa;
-    }
     
-    .task-title.completed {
-        text-decoration: line-through;
-    }
-    
-    .task-actions .btn {
+    .grade-actions .btn {
         min-width: 40px;
     }
     
-    .task-badge {
+    .grade-badge {
         font-size: 0.8rem;
     }
 </style>
@@ -76,7 +32,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>@ViewData["Title"]</h1>
         <a asp-controller="Task" asp-action="Create" class="btn btn-primary">
-            <i class="fas fa-plus-circle me-1"></i> Додати завдання
+            <i class="fas fa-plus-circle me-1"></i> Додати оцінку
         </a>
     </div>
 

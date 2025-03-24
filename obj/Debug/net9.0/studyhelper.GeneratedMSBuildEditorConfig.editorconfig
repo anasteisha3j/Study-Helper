@@ -17,101 +17,101 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = studyhelper
 build_property.RootNamespace = studyhelper
-build_property.ProjectDir = D:\прогр.інженерія\2 семестр\studyhelper\
+build_property.ProjectDir = D:\Study-Helper\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\прогр.інженерія\2 семестр\studyhelper
+build_property.MSBuildProjectDirectory = D:\Study-Helper
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Grade/Create.cshtml]
+[D:/Study-Helper/Views/Grade/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Grade/Delete.cshtml]
+[D:/Study-Helper/Views/Grade/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Grade/Edit.cshtml]
+[D:/Study-Helper/Views/Grade/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Grade/Index.cshtml]
+[D:/Study-Helper/Views/Grade/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Home/Grades.cshtml]
+[D:/Study-Helper/Views/Home/Grades.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHcmFkZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Home/Index.cshtml]
+[D:/Study-Helper/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Home/Notes.cshtml]
+[D:/Study-Helper/Views/Home/Notes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb3Rlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Home/Privacy.cshtml]
+[D:/Study-Helper/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Home/Tasks.cshtml]
+[D:/Study-Helper/Views/Home/Tasks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUYXNrcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Login.cshtml]
+[D:/Study-Helper/Views/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Note/Create.cshtml]
+[D:/Study-Helper/Views/Note/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Note/Delete.cshtml]
+[D:/Study-Helper/Views/Note/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Note/Edit.cshtml]
+[D:/Study-Helper/Views/Note/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Shared/Error.cshtml]
+[D:/Study-Helper/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Study-Helper/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Task/Create.cshtml]
+[D:/Study-Helper/Views/Task/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Task/Delete.cshtml]
+[D:/Study-Helper/Views/Task/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Task/Edit.cshtml]
+[D:/Study-Helper/Views/Task/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Task/Index.cshtml]
+[D:/Study-Helper/Views/Task/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/_ViewImports.cshtml]
+[D:/Study-Helper/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/_ViewStart.cshtml]
+[D:/Study-Helper/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/прогр.інженерія/2 семестр/studyhelper/Views/Shared/_Layout.cshtml]
+[D:/Study-Helper/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ho143v53sk
