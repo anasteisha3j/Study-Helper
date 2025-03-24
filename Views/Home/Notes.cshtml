@@ -1,0 +1,32 @@
+@model IEnumerable<StudyApp.Models.NoteModel>
+
+@{
+    ViewData["Title"] = "Сторінка нотаток";
+}
+
+<div class="text-center">
+    <h1>Сторінка нотаток</h1>
+    <p>Список нотаток:</p>
+
+    @if (Model != null && Model.Any())
+    {
+        <ul>
+            @foreach (var note in Model)
+            {
+                <li>
+                    <strong>@note.Title</strong> <br>
+                    @note.Note
+                    <br>
+                    <a href="@Url.Action("Edit", "Note", new { id = note.Id })">Редагувати</a> |
+                    <a href="@Url.Action("Delete", "Note", new { id = note.Id })" onclick="return confirm('Ви впевнені, що хочете видалити цю нотатку?');">Видалити</a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Немає жодної нотатки.</p>
+    }
+
+    <a href="@Url.Action("Create", "Note")" class="btn btn-primary">Додати нову нотатку</a>
+</div>

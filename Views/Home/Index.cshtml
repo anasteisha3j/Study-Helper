@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Вітаємо</h1>
+
+    <div class="buttons-container">
+        <a href="@Url.Action("Tasks", "Home")" class="btn btn-primary">Перейти до завдань</a>
+        <a href="@Url.Action("Grades", "Home")" class="btn btn-primary">Перейти до оцінок</a>
+        <a href="@Url.Action("Notes", "Home")" class="btn btn-primary">Перейти до нотаток</a>
+
+    </div>
+</div>

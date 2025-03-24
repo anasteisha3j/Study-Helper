@@ -1,0 +1,34 @@
+@model IEnumerable<StudyApp.Models.GradeModel>
+
+@{
+    ViewData["Title"] = "Список оцінок";
+}
+
+<h2>Список оцінок</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Предмет</th>
+            <th>Оцінка</th>
+            <th>Дата</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var grade in Model)
+        {
+            <tr>
+                <td>@grade.Subject</td>
+                <td>@grade.Grade</td>
+                <td>@grade.Date.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Grade", new { id = grade.Id })" class="btn btn-primary">Редагувати</a> |
+                    <a href="@Url.Action("Delete", "Grade", new { id = grade.Id })" class="btn btn-danger" onclick="return confirm('Ви впевнені, що хочете видалити цю оцінку?');">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Grade")" class="btn btn-success">Додати нову оцінку</a>
