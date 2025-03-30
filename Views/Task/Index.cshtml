@@ -8,22 +8,22 @@
 }
 
 <style>
-    .grade-card {
+    .task-card {
         transition: all 0.3s ease;
         border-left: 4px solid #6c757d;
     }
     
-    .grade-card:hover {
+    .task-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
     
-    .grade-actions .btn {
+    .task-actions .btn {
         min-width: 40px;
     }
     
-    .grade-badge {
+    .task-badge {
         font-size: 0.8rem;
     }
 </style>
@@ -32,7 +32,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>@ViewData["Title"]</h1>
         <a asp-controller="Task" asp-action="Create" class="btn btn-primary">
-            <i class="fas fa-plus-circle me-1"></i> Додати оцінку
+            <i class="fas fa-plus-circle me-1"></i> Додати завдання
         </a>
     </div>
 

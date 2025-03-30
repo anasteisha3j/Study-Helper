@@ -34,6 +34,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite("Data Source=studyapp.db"));
 
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -1,23 +1,29 @@
+@* Create.cshtml *@
 @model StudyApp.Models.NoteModel
-
 @{
-    ViewData["Title"] = "Create Note";
+    ViewData["Title"] = "Додати нотатку";
 }
 
-<h2>Create a New Note</h2>
+<div class="container">
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Note" class="control-label"></label>
+            <textarea asp-for="Note" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="Note" class="text-danger"></span>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Зберегти</button>
+    </form>
+</div>
 
-<form asp-action="Create" asp-controller="Note" method="post">
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Note"></label>
-        <textarea asp-for="Note" class="form-control"></textarea>
-        <span asp-validation-for="Note" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Save</button>
-</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

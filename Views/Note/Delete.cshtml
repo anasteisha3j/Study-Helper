@@ -1,19 +1,32 @@
 @model StudyApp.Models.NoteModel
 
 @{
-    ViewData["Title"] = "Видалення нотатки";
+    ViewData["Title"] = "Видалити нотатку";
 }
 
-<h2>Видалення нотатки</h2>
-<p>Ви впевнені, що хочете видалити цю нотатку?</p>
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
 
-<div>
-    <strong>@Model.Title</strong>
-    <p>@Model.Note</p>
+    <h3>Ви впевнені, що хочете видалити цю нотатку?</h3>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(model => model.Title)</h5>
+            <p class="card-text">@Html.DisplayFor(model => model.Note)</p>
+            <p class="card-text">
+                <small class="text-muted">
+                    Створено: @Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                    @if (Model.LastModifiedDate.HasValue)
+                    {
+                        <span> | Змінено: @Model.LastModifiedDate.Value.ToString("dd.MM.yyyy HH:mm")</span>
+                    }
+                </small>
+            </p>
+            
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Видалити" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary">Скасувати</a>
+            </form>
+        </div>
+    </div>
 </div>
-
-<form asp-action="DeleteConfirmed" method="post">
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-danger">Видалити</button>
-    <a asp-action="Index" class="btn btn-secondary">Скасувати</a>
-</form>

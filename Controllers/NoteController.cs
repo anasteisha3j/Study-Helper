@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudyApp.Data;
 using StudyApp.Models;
-using System.Threading.Tasks;
 
 namespace StudyApp.Controllers
 {
@@ -15,69 +14,100 @@ namespace StudyApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        // GET: /Note
+        public IActionResult Index()
         {
-            var notes = await _context.Notes.ToListAsync();
-            return View(notes); 
+            return View(_context.Notes.ToList());
         }
 
-        public IActionResult Create()
-        {
-            return View(new NoteModel());
-        }
 
+        // POST: /Note/Create
+[HttpGet]
+public IActionResult Create()
+{
+    return View(new NoteModel()); 
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create(NoteModel model) 
+{
+    if (ModelState.IsValid)
+    {
+        try
+        {
+            model.CreatedDate = DateTime.Now;
+            _context.Notes.Add(model);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("", $"Помилка збереження: {ex.Message}");
+        }
+    }
+    return View(model);
+}
+
+
+        [HttpGet]
+public async Task<IActionResult> Edit(int id)
+{
+    var note = await _context.Notes.FindAsync(id);
+    if (note == null)
+    {
+        return NotFound();
+    }
+    return View(note);
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Note,CreatedDate")] NoteModel noteModel)
+{
+    if (id != noteModel.Id)
+    {
+        return NotFound();
+    }
+
+    if (ModelState.IsValid)
+    {
+        try
+        {
+            var existingNote = await _context.Notes.AsNoTracking()
+                .FirstOrDefaultAsync(n => n.Id == id);
+                
+            if (existingNote != null)
+            {
+                noteModel.CreatedDate = existingNote.CreatedDate;
+            }
+            
+            noteModel.LastModifiedDate = DateTime.Now;
+            _context.Update(noteModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+ 
+        }
+    }
+    return View(noteModel);
+}
+
+
+        // POST: /Note/Delete
         [HttpPost]
-        [ValidateAntiForgeryToken] 
-        public async Task<IActionResult> Create(NoteModel note)
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Notes.Add(note);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            return View(note);
-        }
-
-        // public async Task<IActionResult> Edit(int id)
-        // {
-        //     var note = await _context.Notes.FindAsync(id);
-        //     if (note == null) return NotFound();
-        //     return View(note);
-        // }
-        public async Task<IActionResult> Edit(int id)
-        {
-            var note = await _context.Notes.FindAsync(id);
-            if (note == null)
-            {
-               return NotFound();
-            }
-            return View(note);
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(NoteModel note)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Notes.Update(note);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            return View(note);
-        }
-
-        public async Task<IActionResult> Delete(int id)
-        {
-            var note = await _context.Notes.FindAsync(id);
+            var note = _context.Notes.Find(id);
             if (note != null)
             {
                 _context.Notes.Remove(note);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
-
     }
 }
