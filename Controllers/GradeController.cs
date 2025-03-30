@@ -14,61 +14,90 @@ namespace StudyApp.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_context.Grades.ToList());
-
+            return View(await _context.Grades.ToListAsync());
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View(new GradeModel { Date = DateTime.Today });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-public IActionResult Create([Bind("Subject,Grade,Date")] GradeModel grade)        {
+        public async Task<IActionResult> Create(GradeModel gradeModel)
+        {
             if (ModelState.IsValid)
             {
-                _context.Grades.Add(grade);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(gradeModel);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", $"Помилка збереження: {ex.Message}");
+                }
             }
-            return View(grade);
+            return View(gradeModel);
         }
 
-        public IActionResult Edit(int id)
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
         {
-            var grade = _context.Grades.Find(id);
-            return grade == null ? NotFound() : View(grade);
-        }
+            if (id == null) return NotFound();
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, GradeModel grade)
-        {
-            if (id != grade.Id) return NotFound();
+            var grade = await _context.Grades.FindAsync(id);
+            if (grade == null) return NotFound();
             
-            if (ModelState.IsValid)
-            {
-                _context.Update(grade);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
             return View(grade);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Edit(int id, GradeModel gradeModel)
         {
-            var grade = _context.Grades.Find(id);
-            if (grade != null)
+            if (id != gradeModel.Id) return NotFound();
+
+            if (ModelState.IsValid)
             {
-                _context.Grades.Remove(grade);
-                _context.SaveChanges();
+                try
+                {
+                    _context.Update(gradeModel);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!GradeExists(gradeModel.Id))
+                    {
+                        return NotFound();
+                    }
+                    throw;
+                }
             }
+            return View(gradeModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var grade = await _context.Grades.FindAsync(id);
+            if (grade == null) return NotFound();
+
+            _context.Grades.Remove(grade);
+            await _context.SaveChangesAsync();
+            
             return RedirectToAction(nameof(Index));
+        }
+
+        private bool GradeExists(int id)
+        {
+            return _context.Grades.Any(e => e.Id == id);
         }
     }
 }

@@ -8,6 +8,7 @@
     .grade-card {
         transition: all 0.3s ease;
         border-left: 4px solid #6c757d;
+        margin-bottom: 1rem;
     }
     
     .grade-card:hover {
@@ -19,17 +20,31 @@
         min-width: 40px;
     }
     
-    .grade-badge {
-        font-size: 0.8rem;
-    }
-    
-    .high-grade {
-        color: #28a745;
+    .grade-value {
+        font-size: 1.2rem;
         font-weight: bold;
+        margin-left: 10px;
     }
     
-    .low-grade {
+    .grade-excellent {
+        color: #28a745;
+    }
+    
+    .grade-good {
+        color: #17a2b8;
+    }
+    
+    .grade-satisfactory {
+        color: #ffc107;
+    }
+    
+    .grade-poor {
         color: #dc3545;
+    }
+    
+    .grade-date {
+        font-size: 0.9rem;
+        color: #6c757d;
     }
 </style>
 
@@ -37,12 +52,12 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>@ViewData["Title"]</h1>
         <a asp-controller="Grade" asp-action="Create" class="btn btn-primary">
-            <i class="fas fa-plus-circle me-1"></i> Додати оцінку
+            <i class="fas fa-plus-circle me-2"></i> Додати оцінку
         </a>
     </div>
 
     <div class="grade-list">
-        @foreach (var grade in Model)
+        @foreach (var grade in Model.OrderByDescending(g => g.Date))
         {
             <div class="card mb-3 grade-card">
                 <div class="card-body">
@@ -52,29 +67,29 @@
                                 <h5 class="mb-0">
                                     @grade.Subject
                                 </h5>
-                                <span class="badge grade-badge ms-2 @(grade.Grade >= 10 ? "bg-success" : grade.Grade <= 4 ? "bg-danger" : "bg-warning")">
+                                <span class="grade-value @GetGradeClass(grade.Grade)">
                                     @grade.Grade
                                 </span>
                             </div>
                             
                             <div class="d-flex align-items-center">
-                                <i class="far fa-calendar-alt text-muted me-1"></i>
-                                <small class="text-muted">
+                                <i class="far fa-calendar-alt text-muted me-2"></i>
+                                <span class="grade-date">
                                     @grade.Date.ToString("dd.MM.yyyy")
-                                </small>
+                                </span>
                             </div>
                         </div>
                         
-                        <div class="grade-actions d-flex flex-column flex-md-row">
+                        <div class="grade-actions d-flex">
                             <a asp-controller="Grade" asp-action="Edit" asp-route-id="@grade.Id" 
-                               class="btn btn-sm btn-outline-primary mb-2 mb-md-0 me-md-2">
+                               class="btn btn-sm btn-outline-primary me-2">
                                 <i class="fas fa-edit"></i>
                             </a>
                             
-                            <form asp-controller="Grade" asp-action="Delete" method="post" class="d-inline">
+                            <form asp-controller="Grade" asp-action="Delete" method="post">
                                 <input type="hidden" name="id" value="@grade.Id" />
                                 <button type="submit" class="btn btn-sm btn-outline-danger"
-                                        onclick="return confirm('Видалити цю оцінку?')">
+                                        onclick="return confirm('Ви впевнені, що хочете видалити цю оцінку?')">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
@@ -92,3 +107,13 @@
         }
     </div>
 </div>
+
+@functions {
+    string GetGradeClass(double grade)
+    {
+        if (grade >= 10) return "grade-excellent";
+        if (grade >= 7) return "grade-good";
+        if (grade >= 5) return "grade-satisfactory";
+        return "grade-poor";
+    }
+}
