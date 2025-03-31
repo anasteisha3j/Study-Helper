@@ -1,15 +1,30 @@
-﻿
-@{
+﻿@using StudyApp.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+
+    @{
     ViewData["Title"] = "Home Page";
-}
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Вітаємо</h1>
+    <div class="text-center">
+        <h1 class="display-4">Вітаємо</h1>
 
-    <div class="buttons-container">
-        <a href="@Url.Action("Tasks", "Home")" class="btn btn-primary">Перейти до завдань</a>
-        <a href="@Url.Action("Grades", "Home")" class="btn btn-primary">Перейти до оцінок</a>
-        <a href="@Url.Action("Notes", "Home")" class="btn btn-primary">Перейти до нотаток</a>
+        <div class="buttons-container">
+            <a href="@Url.Action("Tasks", "Home")" class="btn btn-primary">Перейти до завдань</a>
+            <a href="@Url.Action("Grades", "Home")" class="btn btn-primary">Перейти до оцінок</a>
+            <a href="@Url.Action("Notes", "Home")" class="btn btn-primary">Перейти до нотаток</a>
+        </div>
 
+        <hr>
+
+        @if (SignInManager.IsSignedIn(User))
+    {
+        <p>Ви увійшли як <strong>@User.Identity.Name</strong></p>
+        <a href="@Url.Action("Logout", "Account")" class="btn btn-danger">Вийти</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Register", "Account")" class="btn btn-success">Реєстрація</a>
+        <a href="@Url.Action("Login", "Account")" class="btn btn-primary">Вхід</a>
+    }
     </div>
-</div>

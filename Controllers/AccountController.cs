@@ -23,10 +23,8 @@ public class AccountController : Controller
     [HttpGet("users")]
     public IActionResult GetUsers()
     {
-        var users = _context.Users.ToList();
+        var users = _userManager.Users.Select(u => new { u.Id, u.UserName, u.Email, u.FullName }).ToList();
         Console.WriteLine($"Total users found: {users.Count}");
-        var users2 = _userManager.Users.Select(u => new { u.Id, u.UserName, u.Email, u.FullName }).ToList();
-        Console.WriteLine($"Total users found: {users2.Count}");
         return Ok(users.Select(u => new { u.Id, u.UserName, u.Email, u.FullName }));
     }
 
