@@ -1,0 +1,114 @@
+@model IEnumerable<StudyApp.Models.Study>
+
+@{
+    ViewData["Title"] = "Мої конспекти";
+}
+
+<style>
+    .study-card {
+        transition: all 0.3s ease;
+        border-left: 4px solid #415a77;
+        background-color: #1b263b;
+        color: #e0e1dd;
+    }
+    
+    .study-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        background-color: #415a77;
+    }
+    
+    .study-actions .btn {
+        min-width: 40px;
+    }
+    
+    .study-date {
+        font-size: 0.8rem;
+        color: #778da9 !important;
+    }
+    
+    .study-title {
+        color: #e0e1dd;
+    }
+    
+    .study-content {
+        color: #b8c2d9;
+    }
+    
+    .empty-message {
+        background-color: #1b263b;
+        border-color: #415a77;
+        color: #e0e1dd;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus-circle me-1"></i> Додати конспект
+        </a>
+    </div>
+
+    <div class="study-list">
+        @foreach (var study in Model)
+        {
+            <div class="card mb-3 study-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="flex-grow-1">
+                            <h5 class="mb-2 study-title">@study.Title</h5>
+                            
+                            @if (!string.IsNullOrEmpty(study.Content))
+                            {
+                                <p class="study-content mb-2">@study.Content</p>
+                            }
+                            
+                            @if (!string.IsNullOrEmpty(study.FilePath))
+                            {
+                                <div class="mb-2">
+                                    <a href="@study.FilePath" target="_blank" class="btn btn-sm btn-outline-info">
+                                        <i class="fas fa-file-download me-1"></i> Завантажити файл
+                                    </a>
+                                </div>
+                            }
+                            
+                            <div class="d-flex align-items-center">
+                                <i class="far fa-calendar-alt study-date me-1"></i>
+                                <small class="study-date">
+                                    Створено: @study.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                                    @if (study.LastModifiedDate.HasValue)
+                                    {
+                                        <span> | Змінено: @study.LastModifiedDate.Value.ToString("dd.MM.yyyy HH:mm")</span>
+                                    }
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="study-actions d-flex">
+                            <a asp-action="Edit" asp-route-id="@study.Id" 
+                               class="btn btn-sm btn-outline-warning me-2">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            
+                            <form asp-action="Delete" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@study.Id" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('Видалити цей конспект?')">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info empty-message">
+                <i class="fas fa-info-circle me-2"></i> У вас ще немає конспектів. Додайте перший!
+            </div>
+        }
+    </div>
+</div>

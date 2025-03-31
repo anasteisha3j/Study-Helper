@@ -13,11 +13,12 @@ namespace StudyApp.Controllers
         {
             _context = context;
         }
+public IActionResult Index()
+{
+    var grades = _context.Grades.ToList(); // або будь-яке джерело даних
+    return View(grades);
+}
 
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Grades.ToListAsync());
-        }
 
         [HttpGet]
         public IActionResult Create()

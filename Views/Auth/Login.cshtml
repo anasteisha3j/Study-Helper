@@ -1,0 +1,53 @@
+@* @model StudyApp.Models.AccountViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Вхід";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow" style="background-color: var(--dark-primary); border: 1px solid var(--dark-accent);">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4"><i class="fas fa-sign-in-alt me-2"></i>Вхід</h2>
+                    
+                    <form asp-action="Login" asp-controller="Auth" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Електронна пошта</label>
+                            <input asp-for="Email" class="form-control" style="background-color: var(--dark-secondary); color: var(--dark-text); border-color: var(--dark-accent);">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Пароль</label>
+                            <input asp-for="Password" type="password" class="form-control" style="background-color: var(--dark-secondary); color: var(--dark-text); border-color: var(--dark-accent);">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input asp-for="RememberMe" class="form-check-input">
+                            <label asp-for="RememberMe" class="form-check-label">Запам'ятати мене</label>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt me-2"></i>Увійти</button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-3 text-center">
+                        <a href="#" class="text-muted">Забули пароль?</a>
+                    </div>
+                    
+                    <hr class="my-4" style="border-color: var(--dark-accent);">
+                    
+                    <div class="text-center">
+                        <span class="text-muted">Немає акаунта? </span>
+                        <a asp-controller="Auth" asp-action="Register" class="text-primary">Зареєструватись</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@

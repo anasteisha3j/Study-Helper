@@ -1,32 +1,81 @@
 @model IEnumerable<StudyApp.Models.GradeModel>  
+
 @{
-    ViewData["Title"] = "Grades";
+    ViewData["Title"] = "Мої оцінки";
 }
 
-<div class="text-center">
-    <h1>Оцінки</h1>
-    <p>Список оцінок:</p>
-
-    @if (Model != null && Model.Any())  
-    {
-        <ul>
-            @foreach (var grade in Model)
-            {
-                <li>
-                    <strong>@grade.Subject</strong> - @grade.Grade
-                    <br />
-                    @grade.Date.ToString("yyyy-MM-dd")  
-                    <br />
-                    <a href="@Url.Action("Edit", "Grade", new { id = grade.Id })">Edit</a> |
-                    <a href="@Url.Action("Delete", "Grade", new { id = grade.Id })" onclick="return confirm('Ви впевнені що хочете видалити оцінку?');">Delete</a>
-                </li>
-            }
-        </ul>
-    }
-    else
-    {
-        <p>Немає оцінок.</p>  
+<style>
+    .grade-card {
+        transition: all 0.3s ease;
+        border-left: 4px solid #6c757d;
     }
     
-    <a href="@Url.Action("Create", "Grade")" class="btn btn-primary">Додати оцінку</a>
+    .grade-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .grade-actions .btn {
+        min-width: 40px;
+    }
+    
+    .grade-date {
+        font-size: 0.8rem;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-controller="Grade" asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus-circle me-1"></i> Додати оцінку
+        </a>
+    </div>
+
+    <div class="grade-list">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var grade in Model.OrderByDescending(g => g.Date))
+            {
+                <div class="card mb-3 grade-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <h5 class="mb-2">@grade.Subject</h5>
+                                <p class="text-muted mb-2">Оцінка: <strong>@grade.Grade</strong></p>
+                                
+                                <div class="d-flex align-items-center">
+                                    <i class="far fa-calendar-alt text-muted me-1"></i>
+                                    <small class="text-muted grade-date">
+                                        Дата: @grade.Date.ToString("dd.MM.yyyy")
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div class="grade-actions d-flex">
+                                <a asp-controller="Grade" asp-action="Edit" asp-route-id="@grade.Id" 
+                                   class="btn btn-sm btn-outline-primary me-2">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                
+                                <form asp-controller="Grade" asp-action="Delete" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@grade.Id" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                                            onclick="return confirm('Видалити цю оцінку?')">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i> У вас ще немає оцінок. Додайте першу!
+            </div>
+        }
+    </div>
 </div>

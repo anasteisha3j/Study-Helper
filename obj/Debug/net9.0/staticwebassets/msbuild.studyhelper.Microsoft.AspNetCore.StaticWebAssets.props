@@ -1152,5 +1152,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\studyhelper.w8n2b7rc1t.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea6bd81c-c939-46c3-b696-8be44717bd46_вимоги.docx'))">
+      <SourceType>Package</SourceType>
+      <SourceId>studyhelper</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/studyhelper</BasePath>
+      <RelativePath>uploads/ea6bd81c-c939-46c3-b696-8be44717bd46_вимоги.docx</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>1t50htuizi</Fingerprint>
+      <Integrity>mz3Y0lKIEPjloxOWC6/illel1bv1mdR1R6Dhf3sDFWY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea6bd81c-c939-46c3-b696-8be44717bd46_вимоги.docx'))</OriginalItemSpec>
+    </StaticWebAsset>
   </ItemGroup>
 </Project>

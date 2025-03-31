@@ -1,36 +1,3 @@
-@* @model StudyApp.Models.GradeModel
-
-@{
-    ViewData["Title"] = "Створити нову оцінку";
-}
-
-<h2>Створити нову оцінку</h2>
-
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Subject"></label>
-        <input asp-for="Subject" class="form-control" />
-        <span asp-validation-for="Subject" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Grade"></label>
-        <input asp-for="Grade" class="form-control" />
-        <span asp-validation-for="Grade" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Date"></label>
-        <input asp-for="Date" type="date" class="form-control" />
-        <span asp-validation-for="Date" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Зберегти</button>
-</form>
-
-<a href="@Url.Action("Index", "Grade")" class="btn btn-secondary">Назад до списку</a> *@
-
-
 @model StudyApp.Models.GradeModel
 
 @{
@@ -62,7 +29,7 @@
             
             <div class="form-group mb-3">
                 <label asp-for="Grade" class="control-label"></label>
-                <input asp-for="Grade" class="form-control" type="number" min="1" max="12" />
+                <input asp-for="Grade" class="form-control" type="number" />
                 <span asp-validation-for="Grade" class="text-danger"></span>
             </div>
             

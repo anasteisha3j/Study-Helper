@@ -1,0 +1,68 @@
+@model StudyApp.Models.Study
+
+@{
+    ViewData["Title"] = "Видалити конспект";
+}
+
+<style>
+    .study-delete-card {
+        background-color: #1b263b;
+        border-radius: 8px;
+        padding: 20px;
+        border: 1px solid #ff4444;
+    }
+    
+    .study-content {
+        color: #b8c2d9;
+    }
+    
+    .study-date {
+        color: #778da9;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="study-delete-card">
+        <h2 class="mb-4">@ViewData["Title"]</h2>
+        <h4 class="text-warning mb-4">Ви впевнені, що хочете видалити цей конспект?</h4>
+        
+        <div class="mb-4">
+            <h5>@Model.Title</h5>
+            
+            @if (!string.IsNullOrEmpty(Model.Content))
+            {
+                <p class="study-content mt-3">@Model.Content</p>
+            }
+            
+            @if (!string.IsNullOrEmpty(Model.FilePath))
+            {
+                <div class="mt-3">
+                    <a href="@Model.FilePath" target="_blank" class="btn btn-sm btn-outline-info">
+                        <i class="fas fa-file-download me-1"></i> Переглянути прикріплений файл
+                    </a>
+                </div>
+            }
+            
+            <div class="mt-3 study-date">
+                <small>
+                    <i class="far fa-calendar-alt me-1"></i>
+                    Створено: @Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                    @if (Model.LastModifiedDate.HasValue)
+                    {
+                        <span> | Змінено: @Model.LastModifiedDate.Value.ToString("dd.MM.yyyy HH:mm")</span>
+                    }
+                </small>
+            </div>
+        </div>
+        
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger me-2">
+                <i class="fas fa-trash-alt me-1"></i> Видалити
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left me-1"></i> Назад до списку
+            </a>
+        </form>
+    </div>
+</div>

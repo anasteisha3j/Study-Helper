@@ -257,6 +257,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
+      "Id": "D:\\Study-Helper\\wwwroot\\uploads\\ea6bd81c-c939-46c3-b696-8be44717bd46_вимоги.docx",
+      "PackagePath": "staticwebassets\\uploads\\ea6bd81c-c939-46c3-b696-8be44717bd46_вимоги.docx"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.studyhelper.props",
       "PackagePath": "build\\studyhelper.props"
     },

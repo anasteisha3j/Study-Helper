@@ -1,0 +1,78 @@
+@model StudyApp.Models.Study
+
+@{
+    ViewData["Title"] = "Редагувати конспект";
+}
+
+<style>
+    .study-form {
+        background-color: #1b263b;
+        border-radius: 8px;
+        padding: 20px;
+        border: 1px solid #415a77;
+    }
+    
+    .form-control, .form-control:focus {
+        background-color: #0d1b2a;
+        color: #e0e1dd;
+        border-color: #415a77;
+    }
+    
+    .form-label {
+        color: #e0e1dd;
+    }
+    
+    .file-preview {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="study-form">
+        <h2 class="mb-4">@ViewData["Title"]</h2>
+        
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label">Заголовок</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Content" class="form-label">Зміст</label>
+                <textarea asp-for="Content" class="form-control" rows="8"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-4">
+                <label class="form-label">Новий файл (замінити поточний)</label>
+                <input type="file" name="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png" />
+                
+                @if (!string.IsNullOrEmpty(Model.FilePath))
+                {
+                    <div class="file-preview">
+                        <small class="text-muted">Поточний файл:</small>
+                        <a href="@Model.FilePath" target="_blank" class="btn btn-sm btn-outline-info mt-1">
+                            <i class="fas fa-file-download me-1"></i> Переглянути
+                        </a>
+                    </div>
+                }
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning me-2">
+                    <i class="fas fa-save me-1"></i> Зберегти зміни
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-times me-1"></i> Скасувати
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

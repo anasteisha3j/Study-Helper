@@ -1,6 +1,27 @@
-namespace studyhelper.Models{
-public class User
+// // In Models/User.cs
+// namespace StudyApp.Models  
+// {
+//     public class User
+//     {
+//         public int Id { get; set; }
+        
+//         [Required]
+//         public string Username { get; set; }
+        
+//         [Required]
+//         public string Password { get; set; }
+        
+//         public string Role { get; set; } = "User";
+//     }
+// }
+
+using Microsoft.AspNetCore.Identity;
+
+namespace StudyApp.Models
 {
-    public required string Username{get;set;}
-    public required string Password{get;set;}
-}}
+    public class ApplicationUser : IdentityUser
+    {
+        public string FullName { get; set; }
+        public DateTime RegistrationDate { get; set; } = DateTime.Now;
+    }
+}
