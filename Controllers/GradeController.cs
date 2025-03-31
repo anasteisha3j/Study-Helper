@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudyApp.Data;
@@ -5,18 +7,31 @@ using StudyApp.Models;
 
 namespace StudyApp.Controllers
 {
+    [Authorize]
     public class GradeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public GradeController(ApplicationDbContext context)
+        public GradeController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Grades.ToListAsync());
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var grades = await _context.Grades
+                .Where(g => g.UserId == user.Id)
+                .ToListAsync();
+
+            return View(grades);
         }
 
         [HttpGet]
@@ -33,6 +48,13 @@ namespace StudyApp.Controllers
             {
                 try
                 {
+                    var user = await _userManager.GetUserAsync(User);
+                    if (user == null)
+                    {
+                        return RedirectToAction("Login", "Account");
+                    }
+
+                    gradeModel.UserId = user.Id;
                     _context.Add(gradeModel);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
@@ -50,7 +72,15 @@ namespace StudyApp.Controllers
         {
             if (id == null) return NotFound();
 
-            var grade = await _context.Grades.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var grade = await _context.Grades
+                .FirstOrDefaultAsync(g => g.Id == id && g.UserId == user.Id);
+
             if (grade == null) return NotFound();
             
             return View(grade);
@@ -62,11 +92,28 @@ namespace StudyApp.Controllers
         {
             if (id != gradeModel.Id) return NotFound();
 
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(gradeModel);
+                    var existingGrade = await _context.Grades
+                        .FirstOrDefaultAsync(g => g.Id == id && g.UserId == user.Id);
+
+                    if (existingGrade == null)
+                    {
+                        return NotFound();
+                    }
+
+                    existingGrade.Subject = gradeModel.Subject;
+                    existingGrade.Grade = gradeModel.Grade;
+                    existingGrade.Date = gradeModel.Date;
+
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
@@ -86,7 +133,15 @@ namespace StudyApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            var grade = await _context.Grades.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var grade = await _context.Grades
+                .FirstOrDefaultAsync(g => g.Id == id && g.UserId == user.Id);
+
             if (grade == null) return NotFound();
 
             _context.Grades.Remove(grade);

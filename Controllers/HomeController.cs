@@ -25,10 +25,9 @@ namespace StudyApp.Controllers
             return View(tasks); 
         }
 
-        public async Task<IActionResult> Grades()
+        public IActionResult Grades()
         {
-            var grades = await _context.Grades.ToListAsync();
-            return View();
+            return RedirectToAction("Index", "Grade");
         }
 
         public IActionResult Notes()

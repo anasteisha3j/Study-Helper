@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudyApp.Models
 {
@@ -16,5 +17,11 @@ namespace StudyApp.Models
 
         [Required(ErrorMessage = "Дата є обов'язковою.")]
         public DateTime Date { get; set; } = DateTime.Today;
+
+        public string? UserId { get; set; }
+
+        // Navigation property
+        [ForeignKey("UserId")]
+        public virtual User? User { get; set; }
     }
 }
