@@ -28,15 +28,12 @@ namespace StudyApp.Controllers
         public async Task<IActionResult> Grades()
         {
             var grades = await _context.Grades.ToListAsync();
-
             return View();
         }
 
-        public async Task<IActionResult> Notes()
+        public IActionResult Notes()
         {
-            var notes = await _context.Notes.ToListAsync();
-            return View(notes);
+            return RedirectToAction("Index", "Note");
         }
-
     }
 }
