@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 namespace StudyApp.Models
 {
     public class TaskModel
@@ -17,5 +17,10 @@ namespace StudyApp.Models
         public DateTime Deadline { get; set; }
 
         public bool IsCompleted { get; set; } = false; 
+        [Required]
+        public string UserId { get; set; }  
+
+        [ForeignKey("UserId")]
+        public string Author { get; set; }  
     }
 }

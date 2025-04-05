@@ -36,6 +36,31 @@ public async Task<IActionResult> Create(NoteModel model)
     {
         try
         {
+<<<<<<< Updated upstream
+=======
+            return View(new NoteModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(NoteModel model)
+        {
+            Console.WriteLine("Create method triggered.");
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                Console.WriteLine("User not found.");
+                return RedirectToAction("Login", "Account");
+            }
+
+            Console.WriteLine($"User: {user.Id}");
+
+            model.UserId = user.Id;
+
+            model.Author = user.UserName; 
+
+>>>>>>> Stashed changes
             model.CreatedDate = DateTime.Now;
             _context.Notes.Add(model);
             await _context.SaveChangesAsync();
