@@ -679,10 +679,7 @@ D:\Study-Helper\obj\Debug\net9.0\studyhelper.GeneratedMSBuildEditorConfig.editor
 D:\Study-Helper\obj\Debug\net9.0\studyhelper.AssemblyInfoInputs.cache
 D:\Study-Helper\obj\Debug\net9.0\studyhelper.AssemblyInfo.cs
 D:\Study-Helper\obj\Debug\net9.0\studyhelper.csproj.CoreCompileInputs.cache
-<<<<<<< Updated upstream
 D:\Study-Helper\obj\Debug\net9.0\studyhelper.MvcApplicationPartsAssemblyInfo.cs
-=======
->>>>>>> Stashed changes
 D:\Study-Helper\obj\Debug\net9.0\studyhelper.MvcApplicationPartsAssemblyInfo.cache
 D:\Study-Helper\obj\Debug\net9.0\studyhelper.RazorAssemblyInfo.cache
 D:\Study-Helper\obj\Debug\net9.0\studyhelper.RazorAssemblyInfo.cs
@@ -696,17 +693,13 @@ D:\Study-Helper\bin\Debug\net9.0\studyhelper.deps.json
 D:\Study-Helper\bin\Debug\net9.0\studyhelper.runtimeconfig.json
 D:\Study-Helper\bin\Debug\net9.0\studyhelper.dll
 D:\Study-Helper\bin\Debug\net9.0\studyhelper.pdb
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\Azure.Core.dll
 D:\Study-Helper\bin\Debug\net9.0\Azure.Identity.dll
 D:\Study-Helper\bin\Debug\net9.0\BCrypt.Net-Next.dll
-=======
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\Humanizer.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.UI.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -729,44 +722,26 @@ D:\Study-Helper\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Data.Sqlite.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.DiaSymReader.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.DotNet.Scaffolding.Shared.dll
-=======
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.Build.Locator.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-D:\Study-Helper\bin\Debug\net9.0\Microsoft.Data.Sqlite.dll
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Sqlite.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-=======
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Embedded.dll
-=======
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Identity.Client.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
 D:\Study-Helper\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
@@ -799,19 +774,12 @@ D:\Study-Helper\bin\Debug\net9.0\SQLitePCLRaw.batteries_v2.dll
 D:\Study-Helper\bin\Debug\net9.0\SQLitePCLRaw.core.dll
 D:\Study-Helper\bin\Debug\net9.0\SQLitePCLRaw.provider.e_sqlite3.dll
 D:\Study-Helper\bin\Debug\net9.0\System.ClientModel.dll
-=======
-D:\Study-Helper\bin\Debug\net9.0\Mono.TextTemplating.dll
-D:\Study-Helper\bin\Debug\net9.0\SQLitePCLRaw.batteries_v2.dll
-D:\Study-Helper\bin\Debug\net9.0\SQLitePCLRaw.core.dll
-D:\Study-Helper\bin\Debug\net9.0\SQLitePCLRaw.provider.e_sqlite3.dll
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\System.CodeDom.dll
 D:\Study-Helper\bin\Debug\net9.0\System.Composition.AttributedModel.dll
 D:\Study-Helper\bin\Debug\net9.0\System.Composition.Convention.dll
 D:\Study-Helper\bin\Debug\net9.0\System.Composition.Hosting.dll
 D:\Study-Helper\bin\Debug\net9.0\System.Composition.Runtime.dll
 D:\Study-Helper\bin\Debug\net9.0\System.Composition.TypedParts.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
 D:\Study-Helper\bin\Debug\net9.0\System.Formats.Asn1.dll
 D:\Study-Helper\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
@@ -868,9 +836,6 @@ D:\Study-Helper\bin\Debug\net9.0\vi\Humanizer.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
-=======
-D:\Study-Helper\bin\Debug\net9.0\System.Text.Json.dll
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -897,7 +862,6 @@ D:\Study-Helper\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
@@ -911,8 +875,6 @@ D:\Study-Helper\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resou
 D:\Study-Helper\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-=======
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
@@ -926,7 +888,6 @@ D:\Study-Helper\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.res
 D:\Study-Helper\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Features.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Features.resources.dll
@@ -953,8 +914,6 @@ D:\Study-Helper\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Scripting.resources.d
 D:\Study-Helper\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-=======
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
@@ -981,15 +940,12 @@ D:\Study-Helper\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.Bu
 D:\Study-Helper\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Study-Helper\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-=======
->>>>>>> Stashed changes
 D:\Study-Helper\bin\Debug\net9.0\runtimes\browser-wasm\nativeassets\net9.0\e_sqlite3.a
 D:\Study-Helper\bin\Debug\net9.0\runtimes\linux-arm\native\libe_sqlite3.so
 D:\Study-Helper\bin\Debug\net9.0\runtimes\linux-arm64\native\libe_sqlite3.so
@@ -1011,7 +967,6 @@ D:\Study-Helper\bin\Debug\net9.0\runtimes\win-arm\native\e_sqlite3.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win-arm64\native\e_sqlite3.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
-<<<<<<< Updated upstream
 D:\Study-Helper\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\Study-Helper\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Study-Helper\obj\Debug\net9.0\scopedcss\bundle\studyhelper.styles.css
@@ -1078,11 +1033,6 @@ D:\Study-Helper\obj\Debug\net9.0\compressed\a3ygkwa5zy-2z0ns9nrw6.gz
 D:\Study-Helper\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 D:\Study-Helper\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 D:\Study-Helper\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
-=======
-D:\Study-Helper\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-D:\Study-Helper\obj\Debug\net9.0\scopedcss\bundle\studyhelper.styles.css
-D:\Study-Helper\obj\Debug\net9.0\scopedcss\projectbundle\studyhelper.bundle.scp.css
->>>>>>> Stashed changes
 D:\Study-Helper\obj\Debug\net9.0\compressed\bv7rhp9twi-b9sayid5wm.gz
 D:\Study-Helper\obj\Debug\net9.0\compressed\0tzujnlwdm-61n19gt1b8.gz
 D:\Study-Helper\obj\Debug\net9.0\compressed\87inlgqr26-xtxxf3hu2r.gz
