@@ -19,9 +19,8 @@ namespace StudyApp.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? LastModifiedDate { get; set; }
 
-        // Foreign Key for User (Author)
         [Required]
-        public string UserId { get; set; }  // Foreign key column
+        public string UserId { get; set; }  
 
         [ForeignKey("UserId")]
         public string Author { get; set; }  // Navigation property

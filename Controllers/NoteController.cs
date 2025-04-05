@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudyApp.Controllers
 {
-    [Authorize] // Ensure only authenticated users can access notes
+    [Authorize] 
     public class NoteController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,7 +26,6 @@ namespace StudyApp.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
-                Console.WriteLine("Unauthorized access attempt!");
                 return RedirectToAction("Login", "Account");
             }
 
@@ -46,7 +45,6 @@ namespace StudyApp.Controllers
                 .Where(n => n.UserId == user.Id)
                 .ToListAsync();
 
-            Console.WriteLine($"Total notes found: {notes.Count}");
 
             return View(notes);
         }
@@ -62,7 +60,6 @@ namespace StudyApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(NoteModel model)
         {
-            Console.WriteLine("Create method triggered.");
 
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
@@ -75,13 +72,9 @@ namespace StudyApp.Controllers
 
             model.UserId = user.Id;
 
-            model.Author = user.UserName; // Or any other user property
+            model.Author = user.UserName; 
 
             model.CreatedDate = DateTime.Now;
-
-            Console.WriteLine($"{model.UserId} {model.Author}");
-
-            Console.WriteLine($"Saving note for user: {user.Id}");
 
             _context.Notes.Add(model);
             await _context.SaveChangesAsync();
@@ -89,47 +82,67 @@ namespace StudyApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: /Note/Edit/{id}
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+      // GET: /Note/Edit/5
+[HttpGet]
+public async Task<IActionResult> Edit(int id)
+{
+    var user = await _userManager.GetUserAsync(User);
+    if (user == null) return RedirectToAction("Login", "Account");
+
+    var note = await _context.Notes
+        .AsNoTracking()
+        .FirstOrDefaultAsync(n => n.Id == id && n.UserId == user.Id);
+
+    if (note == null) return NotFound();
+
+    return View(note);
+}
+
+// POST: /Note/Edit/5
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Edit(int id, NoteModel noteModel)
+{
+    if (id != noteModel.Id) return NotFound();
+
+    var user = await _userManager.GetUserAsync(User);
+    if (user == null) return RedirectToAction("Login", "Account");
+
+    var existingNote = await _context.Notes
+        .FirstOrDefaultAsync(n => n.Id == id && n.UserId == user.Id);
+
+    if (existingNote == null) return NotFound();
+
+    if (ModelState.IsValid)
+    {
+        try
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null) return RedirectToAction("Login", "Account");
+            existingNote.Title = noteModel.Title;
+            existingNote.Note = noteModel.Note;
+            existingNote.LastModifiedDate = DateTime.Now;
 
-            var note = await _context.Notes
-                .FirstOrDefaultAsync(n => n.Id == id && n.UserId == user.Id); // Ensure the note belongs to the user
-
-            if (note == null) return NotFound();
-
-            return View(note);
+            _context.Update(existingNote);
+            await _context.SaveChangesAsync();
+            
+            return RedirectToAction(nameof(Index));
         }
-
-        // POST: /Note/Edit/{id}
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Note")] NoteModel noteModel)
+        catch (DbUpdateConcurrencyException)
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null) return RedirectToAction("Login", "Account");
-
-            var existingNote = await _context.Notes
-                .FirstOrDefaultAsync(n => n.Id == id && n.UserId == user.Id);
-
-            if (existingNote == null) return NotFound();
-
-            if (ModelState.IsValid)
+            if (!NoteExists(noteModel.Id))
             {
-                existingNote.Title = noteModel.Title;
-                existingNote.Note = noteModel.Note;
-                existingNote.LastModifiedDate = DateTime.Now;
-
-                _context.Update(existingNote);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            return View(noteModel);
+            throw;
         }
+    }
+
+    return View(noteModel);
+}
+
+private bool NoteExists(int id)
+{
+    return _context.Notes.Any(e => e.Id == id);
+}
 
         // POST: /Note/Delete/{id}
         [HttpPost]

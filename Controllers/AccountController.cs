@@ -32,47 +32,37 @@ public class AccountController : Controller
     public IActionResult Register() => View();
 
     // Register (POST)
-    [HttpPost]
-    public async Task<IActionResult> Register(RegisterViewModel model)
+   [HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Register(RegisterViewModel model)
+{
+    if (ModelState.IsValid)
     {
-        if (!ModelState.IsValid) return View(model);
+        var user = new User
+        {
+            UserName = model.Email,
+            Email = model.Email,
+            FullName = model.FullName
+        };
 
-        Console.WriteLine($"Entered");
-
-        var user = new User { UserName = model.Email, Email = model.Email, FullName = model.FullName };
-        Console.WriteLine($"User_id: {user.Id}, username:{user.UserName}");
         var result = await _userManager.CreateAsync(user, model.Password);
-        Console.WriteLine($"User Manager: {_userManager}");
 
         if (result.Succeeded)
         {
-            Console.WriteLine($"Registration successful");
             await _signInManager.SignInAsync(user, isPersistent: false);
-
-            // Debug: Check if user is in the database
-            var checkUser = await _userManager.FindByEmailAsync(model.Email);
-            if (checkUser != null)
-            {
-                Console.WriteLine($"User {checkUser.Email} was added!");
-            }
-            else
-            {
-                Console.WriteLine("User was not found in the database.");
-            }
-
             return RedirectToAction("Index", "Home");
         }
 
-        Console.WriteLine($"Not successful operation");
-        Console.WriteLine($"Success: {result.Succeeded}");
+        // Додати всі помилки до ModelState
         foreach (var error in result.Errors)
-    {
-        Console.WriteLine($"Code: {error.Code}, Description: {error.Description}");
+        {
+            ModelState.AddModelError(string.Empty, error.Description);
+        }
     }
 
-        Console.WriteLine($"over");
-        return View(model);
-    }
+    // Якщо ми дійшли сюди – щось пішло не так
+    return View(model);
+}
 
 
     // Login (GET)

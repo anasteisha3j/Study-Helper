@@ -893,3 +893,8 @@ F:\C#_WEB\Study-Helper\obj\Debug\net9.0\refint\studyhelper.dll
 F:\C#_WEB\Study-Helper\obj\Debug\net9.0\studyhelper.pdb
 F:\C#_WEB\Study-Helper\obj\Debug\net9.0\studyhelper.genruntimeconfig.cache
 F:\C#_WEB\Study-Helper\obj\Debug\net9.0\ref\studyhelper.dll
+D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Study-Helper\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+D:\Study-Helper\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
