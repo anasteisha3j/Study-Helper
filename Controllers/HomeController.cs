@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudyApp.Data; 
 using StudyApp.Models; 
-
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 namespace StudyApp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -14,9 +16,20 @@ namespace StudyApp.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        // public IActionResult Index()
+        // {
+        //     return View();
+        // }
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var model = new DashboardViewModel
+            {
+                TaskCount = await _context.Tasks.CountAsync(t => t.UserId == GetCurrentUserId()),
+                GradeCount = await _context.Grades.CountAsync(g => g.UserId == GetCurrentUserId()),
+                NoteCount = await _context.Notes.CountAsync(n => n.UserId == GetCurrentUserId())
+            };
+            
+            return View(model);
         }
 
         public async Task<IActionResult> Tasks()
@@ -36,6 +49,19 @@ namespace StudyApp.Controllers
             var notes = await _context.Notes.ToListAsync();
             return View(notes);
         }
+<<<<<<< Updated upstream
 
+=======
+                private string GetCurrentUserId()
+        {
+            return User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        }
+    }
+        public class DashboardViewModel
+    {
+        public int TaskCount { get; set; }
+        public int GradeCount { get; set; }
+        public int NoteCount { get; set; }
+>>>>>>> Stashed changes
     }
 }

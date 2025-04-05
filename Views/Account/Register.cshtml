@@ -1,0 +1,63 @@
+@model RegisterViewModel
+<style>
+    .auth-container {
+        max-width: 400px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-left: 4px solid #4e73df;
+    }
+
+    .auth-input {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .auth-input:focus {
+        border-color: #4e73df;
+        box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.25);
+    }
+
+    .auth-btn {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #4e73df;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .auth-btn:hover {
+        background-color: #2e59d9;
+        transform: translateY(-1px);
+    }
+
+    .auth-footer {
+        margin-top: 1rem;
+        text-align: center;
+    }
+</style>
+
+<div class="auth-container">
+    <h2>Реєстрація</h2>
+    <form asp-action="Register" method="post">
+        <input class="auth-input" asp-for="FullName" placeholder="Ім'я" />
+        <input class="auth-input" asp-for="Email" placeholder="Email" />
+        <input class="auth-input" asp-for="Password" placeholder="Пароль" type="password" />
+        <input class="auth-input" asp-for="ConfirmPassword" placeholder="Підтвердіть пароль" type="password" />
+        
+        <button class="auth-btn" type="submit">Реєстрація</button>
+    </form>
+    
+    <div class="auth-footer">
+        <p>Вже маєте акаунт?<a asp-action="Login">Вхід</a></p>
+    </div>
+</div>
